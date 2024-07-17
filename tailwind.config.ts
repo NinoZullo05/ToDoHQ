@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 export default {
-  content: [],
+  content: ['./src/**/*.{html,ts}'],
   theme: {
     colors: {
       primary: '#ffffff', // classic white
@@ -10,6 +10,8 @@ export default {
       blueIndicator: '#0225ff', // Custom blue for in progress tasks
       redIndicator: '#f21e1eq', // Custom red for not started tasks
       date: '#3abeff', // Custom blue for date
+      secondaryDisabled: '#ff9090', // secoondary color with less opacity
+      link: '#008bd9', // color for link like <a> tag
     },
     screens: {
       sm: '640px',
