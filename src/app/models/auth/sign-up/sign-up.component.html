@@ -1,22 +1,18 @@
-<div class="min-h-screen flex items-center justify-center bg-secondary">
+<div class="h-3/5 flex items-center justify-center bg-transparent">
   <div class="flex bg-white shadow-md rounded p-8 mb-4 max-w-4xl bg-primary">
     <div class="hidden md:flex items-center justify-center mr-8">
-      <img
-        src="{{ imageURL }}"
-        alt="Sign Up Image"
-        class="w-4/5 object-cover"
-      />
+      <img [src]="imageURL" alt="Sign Up Image" class="w-4/5 object-cover" />
     </div>
     <div>
       <h1 class="text-2xl font-bold mb-6">Sign Up</h1>
-      <form class="space-y-4" formControlName="FormControl">
+      <form class="space-y-4" [formGroup]="ContactForm" (ngSubmit)="onSubmit()">
         <div class="relative">
           <input
+            formControlName="firstName"
             type="text"
-            name="firstName"
             id="firstName"
             placeholder="Enter First Name"
-            class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
+            class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded"
             required
           />
           <div
@@ -44,11 +40,11 @@
         </div>
         <div class="relative">
           <input
+            formControlName="lastName"
             type="text"
-            name="lastName"
             id="lastName"
             placeholder="Enter Last Name"
-            class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
+            class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded"
             required
           />
           <div
@@ -78,8 +74,8 @@
         </div>
         <div class="relative">
           <input
+            formControlName="username"
             type="text"
-            name="username"
             id="username"
             placeholder="Enter Username"
             class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
@@ -103,8 +99,8 @@
         </div>
         <div class="relative">
           <input
+            formControlName="email"
             type="email"
-            name="email"
             id="email"
             placeholder="Enter Email"
             class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
@@ -128,8 +124,8 @@
         </div>
         <div class="relative">
           <input
+            formControlName="password"
             type="password"
-            name="password"
             id="password"
             placeholder="Enter Password"
             class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
@@ -153,8 +149,8 @@
         </div>
         <div class="relative">
           <input
+            formControlName="confirmPassword"
             type="password"
-            name="confirmPassword"
             id="confirmPassword"
             placeholder="Confirm Password"
             class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
@@ -176,10 +172,35 @@
             </svg>
           </div>
         </div>
+        <div class="relative">
+          <input
+            formControlName="dob"
+            type="date"
+            id="dob"
+            placeholder="Enter Date of Birth"
+            class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded"
+            required
+          />
+          <div
+            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M19 19H5V8h14m-3-6h2v2h-2M6 2h2v2H6M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2m12 8h-5v5h5"
+              />
+            </svg>
+          </div>
+        </div>
         <div class="flex items-center">
           <input
+            formControlName="terms"
             type="checkbox"
-            name="terms"
             id="terms"
             class="mr-2"
             required
@@ -190,14 +211,19 @@
           <button
             type="submit"
             class="bg-secondary hover:bg-pink-700 text-primary font-bold py-2 px-4 rounded disabled:bg-secondaryDisabled"
-            disabled="{{ isDisabled }}"
           >
             Register
           </button>
         </div>
         <p class="text-sm mt-4">
           Already have an account?
-          <a href="#" class="text-link">Sign In</a>
+          <a
+            routerLink="/signIn"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            class="text-link"
+            >Sign In</a
+          >
         </p>
       </form>
     </div>

@@ -4,12 +4,13 @@
 
 .background-container {
   background-image: url("./assets/images/background.png");
-  background-size: cover; /* Assicura che l'immagine copra l'intero contenitore */
-  background-position: center; /* Centra l'immagine */
-  background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
-  height: 100vh; /* Imposta l'altezza del contenitore a 100% dell'altezza della viewport */
-  width: 100%; /* Imposta la larghezza del contenitore a 100% */
-  display: flex; /* Usato per centrare il contenuto all'interno del contenitore */
-  align-items: center; /* Centra verticalmente il contenuto */
-  justify-content: center; /* Centra orizzontalmente il contenuto */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff6767;
 }
