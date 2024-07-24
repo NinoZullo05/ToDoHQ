@@ -6,13 +6,19 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLinkActive,
+    RouterOutlet,
+    RouterLink,
+  ],
 })
 export class SignUpComponent implements OnInit {
   imageURL = '../../../../assets/images/SignUp.webp';
