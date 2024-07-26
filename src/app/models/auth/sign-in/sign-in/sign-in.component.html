@@ -1,10 +1,9 @@
-<div class="h-3/5 flex items-center justify-center bg-transparent">
-  <div class="flex bg-white shadow-md rounded p-8 mb-4 max-w-4xl bg-primary">
-    <div class="hidden md:flex items-center justify-center mr-8">
-      <img alt="Sign Up Image" class="w-4/5 object-cover" />
-    </div>
-    <div>
-      <h1 class="text-2xl font-bold mb-6">Sign Up</h1>
+<div class="h-3/5 flex items-center justify-center bg-transparent px-4 sm:px-0">
+  <div
+    class="flex flex-col md:flex-row bg-white shadow-lg rounded p-8 mb-4 w-full max-w-5xl bg-primary"
+  >
+    <div class="md:w-3/5 w-full">
+      <h1 class="text-2xl font-bold mb-6">Sign In</h1>
       <form class="space-y-4">
         <div class="relative">
           <input
@@ -58,25 +57,56 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between">
-          <button
-            type="submit"
-            class="bg-secondary hover:bg-pink-700 text-primary font-bold py-2 px-4 rounded disabled:bg-secondaryDisabled"
-          >
-            Register
-          </button>
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="remember-me"
+            class="form-checkbox h-4 w-4 text-gray-600"
+          />
+          <label for="remember-me" class="ml-2 text-sm text-gray-600">
+            Remember Me
+          </label>
         </div>
+
+        <div class="flex items-center justify-between">
+          <app-button
+            [buttonText]="'Login'"
+            [buttonClass]="
+              'bg-secondary hover:bg-pink-700 text-primary  py-2 px-4 rounded disabled:bg-secondaryDisabled'
+            "
+            [isDisabled]="false"
+            (buttonClick)="onButtonClick()"
+          ></app-button>
+        </div>
+
+        <div class="flex items-center space-x-2"></div>
+
+        <p class="text-sm mt-4">Or, Login with</p>
+        <div class="flex space-x-4">
+          <app-facebook-button></app-facebook-button>
+          <app-google-button></app-google-button>
+          <app-x-button></app-x-button>
+        </div>
+
         <p class="text-sm mt-4">
-          Already have an account?
+          Don't have an account?
           <a
-            routerLink="/signIn"
+            routerLink="/signUp"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
             class="text-link"
-            >Sign In</a
+            >Create One</a
           >
         </p>
       </form>
+    </div>
+    <div class="hidden md:flex items-center justify-center ml-8 w-2/5">
+      <img
+        [src]="imageURL"
+        alt="Sign Up Image"
+        src="path/to/your/image.png"
+        class="w-full object-cover"
+      />
     </div>
   </div>
 </div>
