@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SignUpComponent } from './models/auth/sign-up/sign-up.component';
-import { SignInComponent } from './models/auth/sign-in/sign-in/sign-in.component';
+import { SignUpComponent } from './models/auth/components/sign-up/sign-up.component';
+import { SignInComponent } from './models/auth/components/sign-in/sign-in.component';
 @Component({
   selector: 'app-root',
   standalone: true,
