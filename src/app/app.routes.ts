@@ -1,14 +1,29 @@
-import { Routes } from '@angular/router';
-import { SignUpComponent } from './models/auth/components/sign-up/sign-up.component';
-import { SignInComponent } from './models/auth/components/sign-in/sign-in.component';
-import { Error404Component } from './models/error/pages/error404/error404.component';
-import { DashboardComponent } from './models/dashboard/dashboard.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', component: SignUpComponent },
-  { path: 'signUp', component: SignUpComponent },
-  { path: 'signIn', component: SignInComponent },
-  { path: 'dashboard', component: DashboardComponent },
-
-  { path: '**', component: Error404Component },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'errors',
+    loadChildren: () =>
+      import('./modules/error/error.module').then((m) => m.ErrorModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
+  { path: '**', redirectTo: 'errors/404' },
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
