@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error.component';
 import { Error404Component } from './pages/error404/error404.component';
@@ -12,7 +11,7 @@ const routes: Routes = [
       { path: '', redirectTo: '404', pathMatch: 'full' },
       { path: '404', component: Error404Component },
       { path: '500', component: ErrorComponent },
-      { path: '**', redirectTo: 'errors/404' },
+      { path: '**', redirectTo: '404' },
     ],
   },
 ];

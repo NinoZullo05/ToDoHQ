@@ -7,11 +7,12 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-      { path: '**', redirectTo: 'errors/error404' },
-      { path: 'homePage', component: DashboardComponent },
+      { path: 'homePage', component: DashboardComponent }, 
+      { path: '**', redirectTo: 'errors/error404' }, 
     ],
   },
 ];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
