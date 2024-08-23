@@ -1,34 +1,68 @@
-<nav class="bg-[#F8F8F8] shadow flex items-center justify-between px-4 py-2">
-    <div class="flex items-center space-x-2">
-      <h1 class="text-red-500 font-bold text-xl">Dash<span class="text-secondary">board</span></h1>
+<nav class="bg-[#F8F8F8] flex items-center justify-between px-4 py-2">
+  <div class="flex items-center space-x-2">
+    <h2 class="text-red-500 font-medium text-2xl">
+      <span class="text-secondary">Dash</span>board
+    </h2>
+  </div>
+
+  <!-- Barra di ricerca centrata e più lunga -->
+  <div class="flex-grow flex justify-center">
+    <div class="relative max-w-lg w-full">
+      <input
+        type="search"
+        placeholder="Search your task here..."
+        class=" placeholder:text-start placeholder:text-sm bg-gray-100 text-gray-700 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white shadow-sm w-full"
+      />
+      <button
+        type="submit"
+        class="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-500 hover:text-red-600"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
     </div>
-    
-    <div class="flex items-center space-x-4">
-      <div class="relative">
-        <input 
-          type="search" 
-          placeholder="Search your task here..." 
-          class="bg-gray-100 text-gray-700 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white shadow-sm"
-        />
-        <button 
-          type="submit" 
-          class="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-500 hover:text-red-600"
-        >
-          <mat-icon>search</mat-icon>
-        </button>
+  </div>
+
+  <div class="flex items-center space-x-4">
+    <div class="hidden sm:flex space-x-4 items-center">
+      <button
+        class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
+      >
+        <mat-icon>notifications_none</mat-icon>
+      </button>
+      <button
+        class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
+      >
+        <mat-icon>event</mat-icon>
+      </button>
+      <div class="flex flex-col items-center">
+        <span class="text-gray-700 font-medium">{{ date.day }}</span>
+        <span class="text-blue-500 text-sm">{{ formattedDate }}</span>
       </div>
-      
-      <div class="flex space-x-4 items-center">
-        <button class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm">
+    </div>
+
+    <div class="sm:hidden">
+      <button
+        [matMenuTriggerFor]="menu"
+        class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
           <mat-icon>notifications_none</mat-icon>
+          <span>Notifications</span>
         </button>
-        <button class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm">
+        <button mat-menu-item>
           <mat-icon>event</mat-icon>
+          <span>Events</span>
         </button>
-        <div class="flex flex-col items-center">
-          <span class="text-gray-700 font-medium">{{ date.day }}</span>
-          <span class="text-blue-500 text-sm">{{ formattedDate }}</span>
-        </div>
-      </div>
+        <button mat-menu-item disabled>
+          <div class="flex flex-col items-start">
+            <span class="text-gray-700 font-medium">{{ date.day }}</span>
+            <span class="text-blue-500 text-sm">{{ formattedDate }}</span>
+          </div>
+        </button>
+      </mat-menu>
     </div>
+  </div>
 </nav>

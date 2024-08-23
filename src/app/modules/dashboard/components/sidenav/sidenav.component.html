@@ -1,1 +1,92 @@
-<p>sidenav works!</p>
+<div class="relative h-screen">
+  <!-- Desktop Sidebar (Hidden on Mobile) -->
+  <div class="bg-secondary w-1/5 h-full flex-col items-center pt-10 rounded-lg shadow-lg relative mt-20 hidden md:flex">
+    <div class="absolute -top-12 flex flex-col items-center">
+      <img
+        src="https://placehold.co/600x400"
+        alt="User Image"
+        class="w-24 h-24 object-cover rounded-full border-4 border-white"
+      />
+      <div class="text-white mt-4 text-center">
+        <p class="font-bold">Nome Utente</p>
+        <p class="text-sm">email</p>
+      </div>
+    </div>
+    <div class="mt-20 text-white w-full flex-grow">
+      <div class="flex flex-col items-start pl-4">
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">dashboard</span> Dashboard
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">priority_high</span> Vital Task
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">task</span> My Task
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">category</span> Task Categories
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">settings</span> Settings
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">help_outline</span> Help
+        </p>
+      </div>
+    </div>
+    <div class="w-full">
+      <p class="py-2 hover:bg-red-500 rounded flex items-center w-full pl-4 mb-4">
+        <span class="material-icons mr-2">logout</span> Logout
+      </p>
+    </div>
+  </div>
+
+  <!-- Hamburger Icon for Mobile -->
+  <div id="menu-toggle" class="fixed top-0 left-0 p-4 md:hidden mt-10">
+    <button (click)="toggleMenu()" class="text-white focus:outline-none">
+      <span class="material-icons">menu</span>
+    </button>
+  </div>
+
+  <!-- Mobile Sidenav (Initially Hidden) -->
+  <div id="mobile-menu" [ngClass]="{'-translate-x-full': !isMenuOpen}" class="bg-secondary w-64 h-full fixed top-0 left-0 transform transition-transform duration-300 ease-in-out z-50 md:hidden flex flex-col">
+    <div class="absolute top-12 left-0 w-full flex flex-col items-center">
+      <img
+        src="https://placehold.co/600x400"
+        alt="User Image"
+        class="w-24 h-24 object-cover rounded-full border-4 border-white"
+      />
+      <div class="text-white mt-4 text-center">
+        <p class="font-bold">Nome Utente</p>
+        <p class="text-sm">email</p>
+      </div>
+    </div>
+    <div class="mt-20 text-white w-full flex-grow">
+      <div class="flex flex-col items-start pl-4 space-y-4">
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">dashboard</span> Dashboard
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">priority_high</span> Vital Task
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">task</span> My Task
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">category</span> Task Categories
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">settings</span> Settings
+        </p>
+        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
+          <span class="material-icons mr-2">help_outline</span> Help
+        </p>
+      </div>
+    </div>
+    <div class="mt-auto mb-10 w-full">
+      <p class="py-2 hover:bg-red-500 rounded flex items-center w-full pl-4">
+        <span class="material-icons mr-2">logout</span> Logout
+      </p>
+    </div>
+  </div>
+</div>
