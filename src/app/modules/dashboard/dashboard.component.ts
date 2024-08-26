@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidenavComponent } from "./components/sidenav/sidenav.component";
 import { TopnavComponent } from "./components/topnav/topnav.component";
+import { HeaderComponent } from "./components/header/header.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet, SidenavComponent, TopnavComponent],
+  imports: [RouterOutlet, SidenavComponent, TopnavComponent, HeaderComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

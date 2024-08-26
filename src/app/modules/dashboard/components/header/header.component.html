@@ -1,1 +1,31 @@
-<p>header works!</p>
+<div class="flex flex-col p-4 space-y-4">
+  <!-- Testo di benvenuto e immagine hand.png -->
+  <h1 class="flex items-center justify-center text-2xl md:text-4xl font-normal">
+    Welcome back, {{ user.name }}
+    <img src="../../../../../assets/images/hand.png" alt="" class="ml-2 w-6 h-6 md:w-8 md:h-8" />
+  </h1>
+
+  <!-- Immagini dei membri e Bottone "Invite!" -->
+  <div class="flex flex-wrap justify-center items-center space-x-2">
+    <ng-container *ngFor="let image of images; let i = index">
+      <ng-container *ngIf="i < 4">
+        <img [src]="image.src" [alt]="image.alt" class="w-6 h-6 md:w-8 md:h-8 rounded-md object-cover"/>
+      </ng-container>
+
+      <ng-container *ngIf="i === 4">
+        <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-300 flex items-center justify-center text-sm text-white relative">
+          <img [src]="image.src" [alt]="image.alt" class="w-full h-full rounded-md object-cover"/>
+          <span class="absolute inset-0 flex items-center justify-center text-primary rounded-full bg-black bg-opacity-50">
+            +{{ images.length - 4 }}
+          </span>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <!-- Bottone "Invite TODO : farlo grande uguale" -->
+    <button class="mt-2 md:mt-0  border-secondary border-2 flex items-center px-2 py-1 text-xs md:text-sm md:px-3 mx-1 bg-blue-500 text-secondary rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <mat-icon class="mr-1 md:mr-2">person_add</mat-icon>
+      Invite
+    </button>
+  </div>
+</div>

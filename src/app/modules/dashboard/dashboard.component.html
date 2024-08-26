@@ -1,3 +1,19 @@
-<app-topnav></app-topnav>
-<app-sidenav></app-sidenav>
-<router-outlet></router-outlet>
+<div class="flex flex-col h-screen">
+    <!-- Top Navigation -->
+    <app-topnav class=" px-4 py-2 sticky top-0 z-50"></app-topnav>
+  
+    <!-- Main Content -->
+    <div class="flex flex-grow pt-16"> <!-- Aggiungi padding-top qui -->
+      <!-- Sidenav -->
+      <app-sidenav></app-sidenav>
+  
+      <!-- Main Content Area -->
+      <main class="flex-grow flex flex-col mx-10 ">
+        <!-- Header -->
+        <app-header class=""></app-header>
+  
+        <!-- Router Outlet -->
+        <router-outlet class="flex-grow p-4"></router-outlet>
+      </main>
+    </div>
+</div>
