@@ -11,11 +11,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './sidenav.component.css',
 })
 export class SidenavComponent {
-  isMenuOpen: boolean = false;
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
+    activeSection = 'dashboard'; // Seleziona "Dashboard" di default
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
@@ -23,9 +19,28 @@ export class SidenavComponent {
     const mobileMenu = document.getElementById('mobile-menu');
     const menuToggle = document.getElementById('menu-toggle');
 
-    if (this.isMenuOpen && !mobileMenu?.contains(target) && !menuToggle?.contains(target)) {
+    if (
+      this.isMenuOpen &&
+      !mobileMenu?.contains(target) &&
+      !menuToggle?.contains(target)
+    ) {
       this.isMenuOpen = false;
     }
   }
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  setActiveSection(section: string) {
+    this.activeSection = section;
+    this.isMenuOpen = false; // To close the menu when the menu is opened
+  }
+
+  logout() {
+    // TODO : logout logic
+  }
+
   // TODO : fix menu size for mobile and reduce the space between logout and other buttons.
 }

@@ -1,91 +1,128 @@
 <div class="relative h-screen">
   <!-- Desktop Sidebar (Hidden on Mobile) -->
-  <div class="bg-secondary w-1/5 h-screen flex-col items-center pt-10 rounded-lg shadow-lg relative mt-20 hidden md:flex">
+  <div
+    class="bg-secondary w-1/5 h-full flex-col items-center pt-10 rounded-lg shadow-lg relative mt-20 hidden md:flex">
     <div class="absolute -top-12 flex flex-col items-center">
-      <img
-        src="https://placehold.co/600x400"
-        alt="User Image"
-        class="w-24 h-24 object-cover rounded-full border-4 border-white"
-      />
-      <div class="text-white mt-4 text-center">
+      <img src="https://placehold.co/600x400" alt="User Image"
+        class="w-24 h-24 object-cover rounded-full border-top shadow" />
+      <div class="text-primary mt-4 text-center">
         <p class="font-bold">Nome Utente</p>
         <p class="text-sm">email</p>
       </div>
     </div>
-    <div class="mt-20 text-white w-full flex-grow">
-      <div class="flex flex-col items-start pl-4">
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">dashboard</span> Dashboard
+    <div class="mt-20 text-primary w-full flex-grow flex flex-col">
+      <div class="flex flex-col items-start px-4 space-y-4 flex-grow">
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'dashboard', 'bg-white text-primary': activeSection !== 'dashboard'}"
+          (click)="setActiveSection('dashboard')">
+          <span class="material-icons mr-4">dashboard</span> Dashboard
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">priority_high</span> Vital Task
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'vitalTask', 'bg-white text-primary': activeSection !== 'vitalTask'}"
+          (click)="setActiveSection('vitalTask')">
+          <span class="material-icons mr-4">priority_high</span> Vital Task
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">task</span> My Task
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'myTask', 'bg-white text-primary': activeSection !== 'myTask'}"
+          (click)="setActiveSection('myTask')">
+          <span class="material-icons mr-4">task</span> My Task
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">category</span> Task Categories
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'categories', 'bg-white text-primary': activeSection !== 'categories'}"
+          (click)="setActiveSection('categories')">
+          <span class="material-icons mr-4">category</span> Task Categories
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">settings</span> Settings
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'settings', 'bg-white text-primary': activeSection !== 'settings'}"
+          (click)="setActiveSection('settings')">
+          <span class="material-icons mr-4">settings</span> Settings
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">help_outline</span> Help
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'help', 'bg-white text-primary': activeSection !== 'help'}"
+          (click)="setActiveSection('help')">
+          <span class="material-icons mr-4">help_outline</span> Help
         </p>
       </div>
     </div>
-    <div class="w-full">
-      <p class="py-2 hover:bg-red-500 rounded flex items-center w-full pl-4 mb-4">
-        <span class="material-icons mr-2">logout</span> Logout
+    <div class="w-full mt-auto mb-10">
+      <p
+        class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded-xl transition-colors text-primary px-4"
+        (click)="logout()">
+        <span class="material-icons mr-4">logout</span> Logout
       </p>
     </div>
   </div>
 
   <!-- Hamburger Icon for Mobile -->
   <div id="menu-toggle" class="fixed top-0 left-0 p-4 md:hidden mt-10">
-    <button (click)="toggleMenu()" class="text-white focus:outline-none">
+    <button (click)="toggleMenu()" class="focus:outline-none">
       <span class="material-icons">menu</span>
     </button>
   </div>
 
   <!-- Mobile Sidenav (Initially Hidden) -->
-  <div id="mobile-menu" [ngClass]="{'-translate-x-full': !isMenuOpen}" class="bg-secondary w-64 h-full fixed top-0 left-0 transform transition-transform duration-300 ease-in-out z-50 md:hidden flex flex-col">
+  <div id="mobile-menu"
+    [ngClass]="{'-translate-x-full': !isMenuOpen, 'translate-x-0': isMenuOpen}"
+    class="bg-secondary w-64 h-full fixed top-0 left-0 transform transition-transform duration-300 ease-in-out z-50 md:hidden flex flex-col">
     <div class="absolute top-12 left-0 w-full flex flex-col items-center">
-      <img
-        src="https://placehold.co/600x400"
-        alt="User Image"
-        class="w-24 h-24 object-cover rounded-full border-4 border-white"
-      />
-      <div class="text-white mt-4 text-center">
+      <img src="https://placehold.co/600x400" alt="User Image"
+        class="w-24 h-24 object-cover rounded-full border-4 border-white" />
+      <div class="text-primary mt-4 text-center">
         <p class="font-bold">Nome Utente</p>
         <p class="text-sm">email</p>
       </div>
     </div>
-    <div class="mt-20 text-white w-full flex-grow">
+    <div class="mt-20 text-primary w-full flex-grow">
       <div class="flex flex-col items-start pl-4 space-y-4">
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">dashboard</span> Dashboard
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded transition-colors mr-2"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'dashboard', 'bg-white text-primary': activeSection !== 'dashboard'}"
+          (click)="setActiveSection('dashboard')">
+          <span class="material-icons mr-4">dashboard</span> Dashboard
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">priority_high</span> Vital Task
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded transition-colors mr-2"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'vitalTask', 'bg-white text-primary': activeSection !== 'vitalTask'}"
+          (click)="setActiveSection('vitalTask')">
+          <span class="material-icons mr-4">priority_high</span> Vital Task
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">task</span> My Task
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'myTask', 'bg-white text-primary': activeSection !== 'myTask'}"
+          (click)="setActiveSection('myTask')">
+          <span class="material-icons mr-4">task</span> My Task
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">category</span> Task Categories
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'categories', 'bg-white text-primary': activeSection !== 'categories'}"
+          (click)="setActiveSection('categories')">
+          <span class="material-icons mr-4">category</span> Task Categories
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">settings</span> Settings
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded transition-colors mr-2 px-3"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'settings', 'bg-white text-primary': activeSection !== 'settings'}"
+          (click)="setActiveSection('settings')">
+          <span class="material-icons mr-4">settings</span> Settings
         </p>
-        <p class="py-2 hover:bg-red-500 rounded flex items-center w-full">
-          <span class="material-icons mr-2">help_outline</span> Help
+        <p
+          class="py-2 flex items-center w-full text-lg hover:bg-red-500 rounded transition-colors mr-2"
+          [ngClass]="{'bg-primary text-secondary': activeSection === 'help', 'bg-white text-primary': activeSection !== 'help'}"
+          (click)="setActiveSection('help')">
+          <span class="material-icons mr-4">help_outline</span> Help
         </p>
       </div>
     </div>
     <div class="mt-auto mb-10 w-full">
-      <p class="py-2 hover:bg-red-500 rounded flex items-center w-full pl-4">
-        <span class="material-icons mr-2">logout</span> Logout
+      <p
+        class="py-2 flex items-center w-full pl-4 text-lg hover:bg-red-500 rounded transition-colors text-primary"
+        (click)="logout()">
+        <span class="material-icons mr-4">logout</span> Logout
       </p>
     </div>
   </div>

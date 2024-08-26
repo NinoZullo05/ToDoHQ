@@ -1,0 +1,21 @@
+:host {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .collapsed {
+    width: 4rem; /* Larghezza minima quando ridotta */
+  }
+  
+  .expanded {
+    width: 20%; /* Larghezza quando espansa */
+  }
+  
+  .material-icons {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+  }
+  

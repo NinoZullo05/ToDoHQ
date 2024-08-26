@@ -11,58 +11,58 @@
       <input
         type="search"
         placeholder="Search your task here..."
-        class=" placeholder:text-start placeholder:text-sm bg-gray-100 text-gray-700 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white shadow-sm w-full"
+        class="placeholder:text-start placeholder:text-sm bg-gray-100 text-gray-700 rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white shadow-sm w-full"
       />
       <button
         type="submit"
-        class="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-500 hover:text-red-600"
+        class="absolute bg-secondary right-2 top-1/2 transform -translate-y-1/2 text-red-500 hover:text-red-600 px-2 py-1 rounded-lg flex items-center justify-center"
       >
-        <mat-icon>search</mat-icon>
+        <mat-icon class="text-primary">search</mat-icon>
       </button>
     </div>
   </div>
 
   <div class="flex items-center space-x-4">
-    <div class="hidden sm:flex space-x-4 items-center">
+    <div class="hidden sm:flex space-x-2 items-center">
       <button
-        class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
+        class="text-primary rounded-lg bg-secondary h-10 w-10 bg-gray-100 hover:bg-gray-200 shadow-sm flex items-center justify-center"
       >
-        <mat-icon>notifications_none</mat-icon>
+        <mat-icon class="text-lg">notifications_none</mat-icon>
       </button>
       <button
-        class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
+        class="text-primary rounded-lg bg-secondary h-10 w-10 bg-gray-100 hover:bg-gray-200 shadow-sm flex items-center justify-center"
       >
-        <mat-icon>event</mat-icon>
+        <mat-icon class="text-lg">event</mat-icon>
       </button>
       <div class="flex flex-col items-center">
-        <span class="text-gray-700 font-medium">{{ date.day }}</span>
-        <span class="text-blue-500 text-sm">{{ formattedDate }}</span>
+        <span class=" font-medium text-sm">{{ date.day }}</span>
+        <span class="text-date text-xs">{{ formattedDate }}</span>
       </div>
     </div>
+  </div>
 
-    <div class="sm:hidden">
-      <button
-        [matMenuTriggerFor]="menu"
-        class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
-      >
-        <mat-icon>more_vert</mat-icon>
+  <div class="sm:hidden">
+    <button
+      [matMenuTriggerFor]="menu"
+      class="text-red-500 p-2 bg-gray-100 rounded-full hover:bg-gray-200 shadow-sm"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>notifications_none</mat-icon>
+        <span>Notifications</span>
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>notifications_none</mat-icon>
-          <span>Notifications</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>event</mat-icon>
-          <span>Events</span>
-        </button>
-        <button mat-menu-item disabled>
-          <div class="flex flex-col items-start">
-            <span class="text-gray-700 font-medium">{{ date.day }}</span>
-            <span class="text-blue-500 text-sm">{{ formattedDate }}</span>
-          </div>
-        </button>
-      </mat-menu>
-    </div>
+      <button mat-menu-item>
+        <mat-icon>event</mat-icon>
+        <span>Events</span>
+      </button>
+      <button mat-menu-item disabled>
+        <div class="flex flex-col items-start">
+          <span class="text-gray-700 font-medium">{{ date.day }}</span>
+          <span class="text-blue-500 text-sm">{{ formattedDate }}</span>
+        </div>
+      </button>
+    </mat-menu>
   </div>
 </nav>
