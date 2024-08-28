@@ -1,44 +1,96 @@
-<!-- todo.component.html -->
-<div class="p-6 bg-white shadow-md rounded-lg">
-    <h2 class="text-xl font-bold">To-Do</h2>
-    <p class="text-gray-600"></p>
-    <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded">Add Task</button>
-  
-    <div class="mt-6 space-y-4">
-      <div *ngFor="let task of tasks" class="p-4 border border-gray-200 rounded-md">
-        <h3 class="font-semibold">{{ task.title }}</h3>
-        <p>{{ task.description }}</p>
-        <p class="text-sm text-gray-500">Priority: {{ task.priority }} | Status: {{ task.status }} | Created on: {{ task.createdOn }}</p>
+<div class="p-6 min-h-screen shadow">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- To-Do List -->
+    <div class="space-y-4">
+      <!-- Header della sezione To-Do -->
+      <div class="flex items-center">
+        <mat-icon class="text-secondary mr-2">list</mat-icon>
+        <h2 class="text-xl font-normal text-secondary">To-Do</h2>
+        <button class="text-secondary ml-auto">+ Add task</button>
+      </div>
+
+      <!-- Generazione dinamica degli elementi della lista To-Do -->
+      <div *ngFor="let task of tasks" class="bg-white p-4 rounded-lg shadow">
+        <div class="flex justify-between items-start">
+          <div>
+            <!-- Titolo e descrizione del task -->
+            <h3 class="text-lg font-semibold text-gray-800">
+              {{ task.title }}
+            </h3>
+            <p class="text-sm text-gray-600">{{ task.description }}</p>
+            <div class="flex items-center mt-2">
+              <!-- Priorità e stato del task -->
+              <span class="text-xs text-secondary">Priority: {{ task.priority }}</span>
+              <span class="text-xs ml-2" [ngClass]="task.statusColor">
+                Status: {{ task.status }}
+              </span>
+            </div>
+          </div>
+          <!-- Immagine associata al task -->
+          <img [src]="task.image" alt="Task Image" class="w-16 h-16 rounded-md ml-2" />
+        </div>
+        <p class="text-xs text-gray-400 mt-2">Created on: {{ task.createdOn }}</p>
       </div>
     </div>
-  
-    <div class="mt-8 flex justify-between">
-      <div class="w-1/2">
-        <h3 class="text-lg font-bold">Task Status</h3>
-        <div class="flex items-center space-x-4">
-          <div class="flex flex-col items-center">
-            <div class="text-green-500">84%</div>
-            <div class="text-xs">Completed</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-blue-500">46%</div>
-            <div class="text-xs">In Progress</div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-red-500">13%</div>
-            <div class="text-xs">Not Started</div>
+
+    <!-- Task Status & Completed Tasks -->
+    <div class="space-y-4">
+      <!-- Stato delle attività (Task Status) -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <div class="flex items-center">
+          <mat-icon class="text-secondary mr-2">bar_chart</mat-icon>
+          <h2 class="text-lg font-normal text-secondary">Task Status</h2>
+        </div>
+        <div class="flex justify-between mt-4">
+          <!-- Generazione dinamica dello stato delle attività -->
+          <div *ngFor="let status of taskStatus" class="text-center">
+            <!-- Cerchio Progressivo -->
+            <div class="relative inline-block">
+              <svg width="80" height="80" viewBox="0 0 80 80" class="relative">
+                <!-- Cerchio di sfondo -->
+                <circle cx="40" cy="40" r="35" stroke="rgba(0, 0, 0, 0.1)" stroke-width="10" fill="none" />
+                <!-- Cerchio del progresso -->
+                <circle
+                  cx="40"
+                  cy="40"
+                  r="35"
+                  stroke-width="10"
+                  fill="none"
+                  [attr.stroke]="status.color"
+                  [attr.stroke-dasharray]="getStrokeDashArray(status.percentage)"
+                  stroke-linecap="round"
+                  transform="rotate(-90 40 40)"
+                />
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-xl font-normal">{{ status.percentage }}%</div>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600">{{ status.status }}</p>
           </div>
         </div>
       </div>
-  
-      <div class="w-1/2">
-        <h3 class="text-lg font-bold">Completed Tasks</h3>
-        <div *ngFor="let completedTask of completedTasks" class="p-4 border border-gray-200 rounded-md mt-2">
-          <h4 class="font-semibold">{{ completedTask.title }}</h4>
-          <p>{{ completedTask.description }}</p>
-          <p class="text-sm text-gray-500">Status: {{ completedTask.status }} | {{ completedTask.createdOn }}</p>
+
+      <!-- Attività completate (Completed Tasks) -->
+      <div class="bg-primary p-4 rounded-lg shadow border-1">
+        <div class="flex items-center">
+          <mat-icon class="text-secondary mr-2">done_all</mat-icon>
+          <h2 class="text-lg font-normal text-secondary">Completed Task</h2>
+        </div>
+        <div class="mt-4 space-y-2">
+          <!-- Generazione dinamica degli elementi completati -->
+          <div *ngFor="let task of completedTasks" class="flex items-start">
+            <div>
+              <!-- Titolo e descrizione del task completato -->
+              <h3 class="text-sm font-semibold text-gray-800">{{ task.title }}</h3>
+              <p class="text-xs text-gray-600">{{ task.description }}</p>
+              <p class="text-xs text-greenIndicator">Completed {{ task.completedOn }}.</p>
+            </div>
+            <!-- Immagine associata al task completato -->
+            <img [src]="task.image" alt="Completed Task Image" class="w-12 h-12 rounded-md ml-auto" />
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
