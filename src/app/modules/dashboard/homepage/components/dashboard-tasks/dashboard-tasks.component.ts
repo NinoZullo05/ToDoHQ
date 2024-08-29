@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor, NgClass } from '@angular/common';
-import { Task, TaskStatus, CompletedTask } from '../../../../core/models/task.model'; 
+import { Task, TaskStatus, CompletedTask } from '../../../../../core/models/task.model'; 
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
