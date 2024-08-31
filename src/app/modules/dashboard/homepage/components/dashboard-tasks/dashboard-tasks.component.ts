@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
 import { NgFor, NgClass } from '@angular/common';
-import { Task, TaskStatus, CompletedTask } from '../../../../../core/models/task.model'; 
+import {
+  Task,
+  TaskStatus,
+  CompletedTask,
+} from '../../../../../core/models/task.model';
 import { MatIconModule } from '@angular/material/icon';
+import { InvitePopupComponent } from '../../../components/invite-popup/invite-popup.component';
 
 @Component({
   selector: 'app-dashboard-tasks',
   standalone: true,
-  imports: [NgFor, NgClass, MatIconModule],
+  imports: [NgFor, NgClass, MatIconModule, InvitePopupComponent],
   templateUrl: './dashboard-tasks.component.html',
-  styleUrls: ['./dashboard-tasks.component.css'], 
+  styleUrls: ['./dashboard-tasks.component.css'],
 })
 export class DashboardTasksComponent {
+  isPopupOpen: boolean = false;
+
   tasks: Task[] = [
     {
       title: "Attend Nischal's Birthday Party",
@@ -66,8 +73,17 @@ export class DashboardTasksComponent {
   ];
 
   getStrokeDashArray(percentage: number): string {
-    const circumference = 2 * Math.PI * 35; 
+    const circumference = 2 * Math.PI * 35;
     const dashArray = `${(percentage / 100) * circumference} ${circumference}`;
     return dashArray;
+  }
+
+  openPopup() {
+    this.isPopupOpen = true;
+  }
+
+  // Funzione per chiudere il popup
+  closePopup() {
+    this.isPopupOpen = false;
   }
 }

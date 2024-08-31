@@ -12,6 +12,7 @@ export default {
       date: '#3abeff', // Custom blue for date
       secondaryDisabled: '#ff9090', // secoondary color with less opacity
       link: '#008bd9', // color for link like <a> tag
+      popupbackground : '#000000',
     },
     screens: {
       sm: '640px',
