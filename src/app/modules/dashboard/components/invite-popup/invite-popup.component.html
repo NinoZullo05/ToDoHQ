@@ -1,121 +1,125 @@
-<div
-  class="fixed inset-0 flex items-center justify-center bg-popupbackground bg-opacity-50 z-50"
->
-  <div class="bg-primary rounded-lg shadow-lg p-6 w-full max-w-md">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-xl font-bold">Send an invite to a new member</h2>
-      <button
-        class="text-gray-600 hover:text-gray-900 focus:outline-none underline"
-        (click)="closePopup()"
-      >
-        Go Back
-      </button>
-    </div>
-    <div class="mb-4">
-      <label for="email" class="block text-sm font-medium text-gray-700"
-        >Email</label
-      >
-      <div class="flex mt-1">
-        <input
-          type="email"
-          id="email"
-          class="flex-1 p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring focus:ring-orange-500"
-          placeholder="name@example.com"
-        />
+<div class="fixed inset-0 flex items-center justify-center bg-popupbackground bg-opacity-50 z-50">
+  <div class="w-full max-w-md">
+    <!-- Container con sfondo primary che contiene il titolo e il pulsante "Go Back" -->
+    <div class="bg-primary rounded-t-lg shadow-lg p-6 w-full border border-secondary border-b-0">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-black">Send an invite to a new member</h2>
         <button
-          class="bg-secondary text-primary px-4 ml-2 py-2 rounded-md hover:bg-orange-600 focus:outline-none"
+          class="text-black hover:text-gray-900 focus:outline-none underline"
+          (click)="closePopup()"
         >
-          Send Invite
+          Go Back
         </button>
       </div>
     </div>
-    <div class="mb-4">
-      <h3 class="text-lg font-semibold">Members</h3>
-      <ul class="space-y-3 mt-2">
-        <li class="flex justify-between items-center">
-          <div class="flex items-center">
-            <img
-              src="https://placehold.co/40x40"
-              alt="User Image"
-              class="w-10 h-10 rounded-full mr-3"
-            />
-            <div>
-              <p class="font-bold">Upashna Gurung</p>
-              <p class="text-sm text-gray-600">uppaeygrg332 gmail.com</p>
+
+    <!-- Container con bordo e contenuti sottostanti -->
+    <div class="bg-white rounded-b-lg shadow-lg p-6 w-full border border-secondary">
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <div class="flex mt-1">
+          <input
+            type="email"
+            id="email"
+            class="flex-1 p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring focus:ring-secondary"
+            placeholder="name  example.com"
+            value="neerajgurung99  gmail.com"
+          />
+          <button
+            class="bg-secondary text-white px-4 ml-2 py-2 rounded-md hover:bg-orange-600 focus:outline-none"
+          >
+            Send Invite
+          </button>
+        </div>
+      </div>
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold text-black">Members</h3>
+        <ul class="space-y-3 mt-2">
+          <li class="flex justify-between items-center">
+            <div class="flex items-center">
+              <img
+                src="https://placehold.co/40x40"
+                alt="User Image"
+                class="w-10 h-10 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-bold text-black">Upashna Gurung</p>
+                <p class="text-sm text-gray-600">uppaeygrg332  gmail.com</p>
+              </div>
             </div>
-          </div>
-          <select class="no-border-select p-2 focus:outline-none">
-            <option>Can edit</option>
-            <option>Owner</option>
-          </select>
-        </li>
-        <li class="flex justify-between items-center">
-          <div class="flex items-center">
-            <img
-              src="https://placehold.co/40x40"
-              alt="User Image"
-              class="w-10 h-10 rounded-full mr-3"
-            />
-            <div>
-              <p class="font-bold">Jeremy Lee</p>
-              <p class="text-sm text-gray-600">jerrylee1996 gmail.com</p>
+            <select class="no-border-select p-2 focus:outline-none">
+              <option>Can edit</option>
+              <option>Owner</option>
+            </select>
+          </li>
+          <li class="flex justify-between items-center">
+            <div class="flex items-center">
+              <img
+                src="https://placehold.co/40x40"
+                alt="User Image"
+                class="w-10 h-10 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-bold text-black">Jeremy Lee</p>
+                <p class="text-sm text-gray-600">jerrylee1996  gmail.com</p>
+              </div>
             </div>
-          </div>
-          <select class="no-border-select p-2 focus:outline-none">
-            <option>Can edit</option>
-            <option>Owner</option>
-          </select>
-        </li>
-        <li class="flex justify-between items-center">
-          <div class="flex items-center">
-            <img
-              src="https://placehold.co/40x40"
-              alt="User Image"
-              class="w-10 h-10 rounded-full mr-3"
-            />
-            <div>
-              <p class="font-bold">Thomas Park</p>
-              <p class="text-sm text-gray-600">parktho123 gmail.com</p>
+            <select class="no-border-select p-2 focus:outline-none">
+              <option>Can edit</option>
+              <option>Owner</option>
+            </select>
+          </li>
+          <li class="flex justify-between items-center">
+            <div class="flex items-center">
+              <img
+                src="https://placehold.co/40x40"
+                alt="User Image"
+                class="w-10 h-10 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-bold text-black">Thomas Park</p>
+                <p class="text-sm text-gray-600">parktho123  gmail.com</p>
+              </div>
             </div>
-          </div>
-          <select class="no-border-select p-2 focus:outline-none">
-            <option selected>Owner</option>
-            <option>Can edit</option>
-          </select>
-        </li>
-        <li class="flex justify-between items-center">
-          <div class="flex items-center">
-            <img
-              src="https://placehold.co/40x40"
-              alt="User Image"
-              class="w-10 h-10 rounded-full mr-3"
-            />
-            <div>
-              <p class="font-bold">Rachel Takahasi</p>
-              <p class="text-sm text-gray-600">takahasirae32 gmail.com</p>
+            <select class="no-border-select p-2 focus:outline-none">
+              <option selected>Owner</option>
+              <option>Can edit</option>
+            </select>
+          </li>
+          <li class="flex justify-between items-center">
+            <div class="flex items-center">
+              <img
+                src="https://placehold.co/40x40"
+                alt="User Image"
+                class="w-10 h-10 rounded-full mr-3"
+              />
+              <div>
+                <p class="font-bold text-black">Rachel Takahasi</p>
+                <p class="text-sm text-gray-600">takahasirae32  gmail.com</p>
+              </div>
             </div>
-          </div>
-          <select class="no-border-select p-2 focus:outline-none">
-            <option>Can edit</option>
-            <option>Owner</option>
-          </select>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="text-lg font-semibold">Project Link</h3>
-      <div class="flex mt-2">
-        <input
-          type="text"
-          value="https://sharelinkhereandthere.com/34565yy29"
-          class="flex-1 p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring focus:ring-orange-500"
-          readonly
-        />
-        <button
-          class="bg-secondary text-primary px-4 py-2 rounded-md hover:bg-secondary ml-2 focus:outline-none"
-        >
-          Copy Link
-        </button>
+            <select class="no-border-select p-2 focus:outline-none">
+              <option>Can edit</option>
+              <option>Owner</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-black">Project Link</h3>
+        <div class="flex mt-2">
+          <input
+            type="text"
+            value="https://sharelinkhereandthere.com/34565yy29"
+            class="flex-1 p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring focus:ring-secondary"
+            readonly
+          />
+          <button
+            class="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary ml-2 focus:outline-none"
+          >
+            Copy Link
+          </button>
+        </div>
       </div>
     </div>
   </div>
