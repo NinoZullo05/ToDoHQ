@@ -1,8 +1,8 @@
-<div class="fixed inset-0 flex items-center justify-center bg-popupbackground bg-opacity-50 z-50">
-  <div class="w-full max-w-md">
+<div class="fixed inset-0 flex items-center justify-center bg-popupbackground bg-opacity-50 px-4 z-50">
+  <div class="w-full max-w-lg"> <!-- Modificato da max-w-md a max-w-lg -->
     <!-- Container con sfondo primary che contiene il titolo e il pulsante "Go Back" -->
-    <div class="bg-primary rounded-t-lg shadow-lg p-6 w-full border border-secondary border-b-0">
-      <div class="flex justify-between items-center mb-4">
+    <div class="bg-primary rounded-t-lg shadow-lg p-6 w-full  border-b-0">
+      <div class="flex justify-between items-center">
         <h2 class="text-xl font-bold text-black">Send an invite to a new member</h2>
         <button
           class="text-black hover:text-gray-900 focus:outline-none underline"
@@ -14,7 +14,7 @@
     </div>
 
     <!-- Container con bordo e contenuti sottostanti -->
-    <div class="bg-white rounded-b-lg shadow-lg p-6 w-full border border-secondary">
+    <div class="bg-primary rounded-b-lg shadow-lg p-3 w-full ">
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
         <div class="flex mt-1">
@@ -26,7 +26,7 @@
             value="neerajgurung99  gmail.com"
           />
           <button
-            class="bg-secondary text-white px-4 ml-2 py-2 rounded-md hover:bg-orange-600 focus:outline-none"
+            class="bg-secondary text-primary px-4 ml-2 py-2 rounded-md hover:bg-orange-600 focus:outline-none"
           >
             Send Invite
           </button>
@@ -115,7 +115,7 @@
             readonly
           />
           <button
-            class="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary ml-2 focus:outline-none"
+            class="bg-secondary text-primary px-4 py-2 rounded-md hover:bg-secondary ml-2 focus:outline-none"
           >
             Copy Link
           </button>

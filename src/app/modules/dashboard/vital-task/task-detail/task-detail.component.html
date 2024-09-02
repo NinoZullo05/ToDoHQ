@@ -1,0 +1,22 @@
+<div *ngIf="task" class="p-4">
+  <div class="flex items-center mb-4">
+    <img
+      [src]="task.image"
+      alt="Task Image"
+      class="w-16 h-16 rounded-lg mr-4"
+    />
+    <div>
+      <h2 class="text-secondary text-2xl font-bold">{{ task.title }}</h2>
+      <p class="text-gray-500">
+        Priority:
+        <span class="font-semibold text-red-600">{{ task.priority }}</span>
+      </p>
+      <p class="text-gray-500">
+        Status:
+        <span class="font-semibold text-red-600">{{ task.status }}</span>
+      </p>
+      <p class="text-gray-400 text-sm">Created on: {{ task.createdOn }}</p>
+    </div>
+  </div>
+  <p class="text-black">{{ task.description }}</p>
+</div>

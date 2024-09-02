@@ -45,7 +45,7 @@ export class DashboardTasksComponent {
         'Make sure everything is functioning and all the necessities are properly met. Prepare the team and get the documents ready for...',
       priority: 'Moderate',
       status: 'In Progress',
-      statusColor: 'text-blue-500',
+      statusColor: 'text-link',
       createdOn: '19/06/2023',
       image: '../../../../../assets/images/task3.png',
     },
