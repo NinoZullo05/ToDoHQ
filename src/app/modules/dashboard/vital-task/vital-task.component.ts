@@ -6,9 +6,9 @@ import { Task } from '../../../core/models/task.model';
 @Component({
   selector: 'app-vital-task',
   standalone: true,
-  imports: [TaskDetailComponent, TaskListComponent],  
+  imports: [TaskDetailComponent, TaskListComponent],
   templateUrl: './vital-task.component.html',
-  styleUrls: ['./vital-task.component.css'],
+  styleUrl: './vital-task.component.css',
 })
 export class VitalTaskComponent {
   selectedTask: Task | null = null;

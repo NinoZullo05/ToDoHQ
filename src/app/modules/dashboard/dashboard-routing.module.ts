@@ -8,7 +8,6 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -20,8 +19,8 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'help', component: HelpComponent },
-      { path: '', redirectTo: 'homePage', pathMatch: 'full' }, // Redireziona alla homepage di default
-      { path: '**', redirectTo: 'errors/error404' }, // Gestione dei percorsi non trovati
+      { path: '', redirectTo: 'homePage', pathMatch: 'full' },
+      { path: '**', redirectTo: 'errors/error404' },
     ],
   },
 ];

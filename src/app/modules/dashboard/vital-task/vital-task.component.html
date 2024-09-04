@@ -1,13 +1,8 @@
-<div class="flex flex-col md:flex-row gap-4 p-4">
-  <div
-    class="w-full md:w-1/3 flex flex-col items-start border border-secondary p-4 rounded-md"
-  >
-    <app-task-list (selectTask)="onTaskSelected($event)"></app-task-list>
-  </div>
+<div class="flex ">
+  <app-task-list
+    class="w-1/2"
+    (selectTask)="onTaskSelected($event)"
+  ></app-task-list>
 
-  <div
-    class="w-full md:w-2/3 flex flex-col items-start border border-secondary p-4 rounded-md"
-  >
-    <app-task-detail [task]="selectedTask"></app-task-detail>
-  </div>
+  <app-task-detail class="w-1/2" [task]="selectedTask"></app-task-detail>
 </div>

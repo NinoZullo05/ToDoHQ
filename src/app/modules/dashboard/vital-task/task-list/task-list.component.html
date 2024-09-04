@@ -1,21 +1,25 @@
-<!-- task-list.component.html -->
-<div class="p-4">
-    <h3 class="text-secondary text-lg font-bold mb-4">Vital Tasks</h3>
-    <ul>
-      <li
-        *ngFor="let task of tasks"
-        class="mb-4 p-4 border rounded-lg cursor-pointer hover:bg-gray-100"
-        (click)="onTaskSelect(task)"
-      >
-        <div class="flex items-center">
-          <img [src]="task.image" alt="Task Image" class="w-12 h-12 mr-4 rounded-lg" />
-          <div>
-            <h4 class="text-black text-lg font-semibold">{{ task.title }}</h4>
-            <p class="text-gray-500 text-sm">{{ task.description }}</p>
-            <p class="text-gray-400 text-xs">Priority: {{ task.priority }} Status: {{ task.status }}</p>
-          </div>
+<div class="p-4 rounded-md border-2 h-screen w-full mb-6">
+  <h3 class="text-secondary text-lg font-bold mb-4">Vital Tasks</h3>
+  <ul>
+    <li
+      *ngFor="let task of tasks"
+      class="mb-4 p-4 border rounded-lg cursor-pointer hover:bg-gray-100"
+      (click)="onTaskSelect(task)"
+    >
+      <div class="flex items-center">
+        <img
+          [src]="task.image"
+          alt="Task Image"
+          class="w-12 h-12 mr-4 rounded-lg"
+        />
+        <div>
+          <h4 class="text-black text-lg font-semibold">{{ task.title }}</h4>
+          <p class="text-gray-500 text-sm">{{ task.description }}</p>
+          <p class="text-gray-400 text-xs">
+            Priority: {{ task.priority }} Status: {{ task.status }}
+          </p>
         </div>
-      </li>
-    </ul>
-  </div>
-  
+      </div>
+    </li>
+  </ul>
+</div>
