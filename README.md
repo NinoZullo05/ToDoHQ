@@ -1,5 +1,7 @@
 # ToDoHQ
 
+![Thumbnail](https://github.com/NinoZullo05/ToDoHQ/blob/main/src/assets/images/Thumbnail.png)
+
 **ToDoHQ** is a web application developed using Angular and Tailwind CSS, designed to help you manage your daily tasks efficiently and easily. With a modern and responsive interface, you can organize, track, and complete your tasks with ease.
 
 ## Key Features
@@ -66,3 +68,6 @@ If you would like to contribute to the project, feel free to fork the repository
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+```
+
+Ho inserito la thumbnail all'inizio del README, così sarà visibile immediatamente. Se desideri apportare ulteriori modifiche o aggiustamenti, fammi sapere!
