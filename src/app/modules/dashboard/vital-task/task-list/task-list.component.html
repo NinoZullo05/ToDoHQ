@@ -1,24 +1,37 @@
-<div class="p-4 rounded-md border-2 h-screen w-full mb-6">
+<div
+  class="p-4 rounded-md border-2 border-border max-h-[calc(100vh-4rem)] overflow-y-auto mb-6"
+>
   <h3 class="text-secondary text-lg font-bold mb-4">Vital Tasks</h3>
   <ul>
     <li
       *ngFor="let task of tasks"
-      class="mb-4 p-4 border rounded-lg cursor-pointer hover:bg-gray-100"
+      class="relative mb-4 p-4 border rounded-lg cursor-pointer hover:bg-gray-100 flex flex-col md:flex-row items-start"
       (click)="onTaskSelect(task)"
     >
-      <div class="flex items-center">
+      <div
+        class="absolute top-2 left-2 w-3 h-3 border-2 rounded-full"
+        [style.borderColor]="task.statusColor"
+        aria-label="Task Status"
+      ></div>
+
+      <div class="flex-1 md:px-5">
+        <h4 class="text-black text-lg font-semibold mb-2">{{ task.title }}</h4>
+
+        <p class="text-gray-500 text-sm mb-2">{{ task.description }}</p>
+
+        <div class="text-gray-400 text-xs flex space-x-4">
+          <p>Priority: {{ task.priority }}</p>
+          <p>Status: {{ task.status }}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center mt-4 md:mt-0 md:absolute md:right-4 md:top-4">
         <img
           [src]="task.image"
           alt="Task Image"
-          class="w-12 h-12 mr-4 rounded-lg"
+          class="w-12 h-12 rounded-lg mb-2"
         />
-        <div>
-          <h4 class="text-black text-lg font-semibold">{{ task.title }}</h4>
-          <p class="text-gray-500 text-sm">{{ task.description }}</p>
-          <p class="text-gray-400 text-xs">
-            Priority: {{ task.priority }} Status: {{ task.status }}
-          </p>
-        </div>
+        <p class="text-gray-400 text-xs">Created on: {{ task.createdOn }}</p>
       </div>
     </li>
   </ul>

@@ -3,9 +3,9 @@ import { Task } from '../../../../core/models/task.model';
 import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-task-list',
-  standalone: true, 
-  imports : [NgFor],
-  templateUrl: './task-list.component.html'
+  standalone: true,
+  imports: [NgFor],
+  templateUrl: './task-list.component.html',
 })
 export class TaskListComponent {
   @Output() selectTask = new EventEmitter<Task>();
@@ -16,9 +16,10 @@ export class TaskListComponent {
       description: 'Take the dog to the park and bring treats as well.',
       priority: 'Extreme',
       status: 'Not Started',
-      statusColor: '#FF0000', // Rosso per "Not Started"
+      statusColor: '#f21e1eq', // Rosso per "Not Started"
       createdOn: '20/06/2023',
-      image: 'https://placehold.co/100x100'
+      image:
+        'https://discoverymood.com/wp-content/uploads/2019/01/iStock-629076332.jpg',
     },
     {
       title: 'Take grandma to hospital',
@@ -27,11 +28,11 @@ export class TaskListComponent {
       status: 'In Progress',
       statusColor: '#FFA500', // Arancione per "In Progress"
       createdOn: '20/06/2023',
-      image: 'https://placehold.co/100x100'
-    }
+      image: 'https://placehold.co/100x100',
+    },
   ];
 
-  onTaskSelect(task: Task) { 
+  onTaskSelect(task: Task) {
     this.selectTask.emit(task);
   }
 }

@@ -1,8 +1,8 @@
-<div class="flex ">
+<div class="flex flex-col md:flex-row">
   <app-task-list
-    class="w-1/2"
+    class="w-full md:w-1/2"
     (selectTask)="onTaskSelected($event)"
   ></app-task-list>
 
-  <app-task-detail class="w-1/2" [task]="selectedTask"></app-task-detail>
+  <app-task-detail class="w-full md:w-1/2" [task]="selectedTask"></app-task-detail>
 </div>
